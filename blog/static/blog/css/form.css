@@ -65,7 +65,7 @@ form > button,
     color: var(--colColor);
     height: 30px;
     margin-left: 40px;
-    
+    transition: transform 0.3s;
     border: 0px solid var(--colColor);
         background-color: var(--pageBG);
 }
@@ -73,6 +73,11 @@ form > button,
 form > button:active,
 .button:active{
     background-color: rgb(158, 158, 158);
+}
+
+form > button:hover,
+.button:hover{
+    transform: scale(110%);
 }
 
 .button{

@@ -163,6 +163,7 @@ hr {
     width: 100%;
     display: block;
     max-width: 800px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 a.col.article:link{
@@ -172,6 +173,7 @@ a.col.article:link{
 a.col.article:hover{
     text-decoration: none;
     background-color: var(--colBGHover);
+    transform: scale(101%);
 }
 
 
@@ -199,6 +201,7 @@ a.nav {
     background-color: var(--navbarLink);
     text-decoration: none;
     color: var(--navbarLinkColor);
+    transition: background-color 0.3s;
   }
 
   a.nav:hover {
@@ -236,6 +239,7 @@ span.paginator-num > a{
     text-decoration: none;
     color: var(--colColor);
     border-radius: 20px;
+    transition: background-color 0.3s;
     
 }
 
