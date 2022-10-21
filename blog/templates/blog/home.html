@@ -1,0 +1,29 @@
+{% extends "blog/header.html" %}
+{% load static %}
+{% block title %}1024_YottaByte's site{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    {% for col_post in object_list %}
+<!--    {% if col_post.is_published == True %}-->
+    <div class="col {% if col_post.is_article == True %}article{% endif %}">
+        <h3>{{ col_post.title }}</h3>
+        <hr>
+        <p>{{ col_post.body | safe }}</p>
+    </div>
+<!--    {% endif %}-->
+    {% endfor %}
+
+    {% if not object_list %}
+    <div class="col article">
+        <h3>It's empty here for now.</h3>
+        <hr>
+        <p>No entry has been published or does not exist!</p>
+        <p>Please visit this site later.</p>
+    </div>
+    {% endif %}
+
+
+    </div>
+    {% endblock content %}

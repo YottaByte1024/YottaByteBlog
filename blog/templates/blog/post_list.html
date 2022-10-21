@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load markdown_extras %}
+
+{% block title %}Blog - 1024_YottaByte{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% if request.user.is_authenticated %}
+    <div class="col article">
+        <a class="button" href="{% url 'addpost' %}">Add article</a>
+    </div>
+    {% endif %}
+    {% for post in object_list %}
+    <!--    <a class="a_col" href="">-->
+    <!--        {% if post.is_published == True %}-->
+    <a href="{{ post.get_absolute_url }}" class="col article">
+
+        <h1>{{ post.title }}</h1>
+        <hr>
+        <p>{{ post.abstract | safe | truncatewords:100 }}</p>
+        <p>Date: {{ post.date_create | date:'F dS Y' }}. Time: {{ post.date_create | time:'h:i a e' }}.</p>
+
+    </a>
+    <!--        {% endif %}-->
+
+
+    <!--    </a>-->
+    {% endfor %}
+
+    {% if not object_list %}
+    <div class="col article">
+        <h3>It's empty here for now</h3>
+        <hr>
+
+        <p>No article has been published or does not exist!</p>
+        <p>Please visit this site later.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

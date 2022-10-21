@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load markdown_extras %}
+
+{% block title %}Blog - 1024_YottaByte - {{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    {% if request.user.is_authenticated %}
+    <div class="col article">
+        <a class="button" href="{% url 'update_post' post.slug %}">Update</a>
+    </div>
+    {% endif %}
+
+{% if post.is_published == True %}
+    <div class="col article">
+        <h1>{{ post.title }}</h1>
+        <hr>
+        <p>{{ post.abstract | markdown | safe }}</p>
+        <p>Date: {{ post.date_create | date:'F dS Y' }}. Time: {{ post.date_create | time:'h:i a e' }}.</p>
+    </div>
+
+    <div class="col article">
+        <p>{{ post.body | markdown | safe }}</p>
+    </div>
+{% else %}
+    <div class="col article">
+        <h1>Article not available for viewing</h1>
+        <hr>
+        <p>The article is either not published or does not exist!</p>
+        </div>
+{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block title %}Register - 1024_YottaByte{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col article">
+        <h1 class="register">Register</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+            <p>
+                <label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>
+                {{ f }}
+            </p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
