@@ -1,18 +1,19 @@
 {% extends "blog/header.html" %}
 {% load static %}
+{% load markdown_extras %}
 {% block title %}1024_YottaByte's site{% endblock %}
 
 {% block content %}
 <div class="row">
 
     {% for col_post in object_list %}
-<!--    {% if col_post.is_published == True %}-->
+    {% if col_post.pk != 1 %}
     <div class="col {% if col_post.is_article == True %}article{% endif %}">
         <h3>{{ col_post.title }}</h3>
         <hr>
-        <p>{{ col_post.body | safe }}</p>
+        <p>{{ col_post.body | markdown | safe }}</p>
     </div>
-<!--    {% endif %}-->
+    {% endif %}
     {% endfor %}
 
     {% if not object_list %}

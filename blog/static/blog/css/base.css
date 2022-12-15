@@ -91,7 +91,8 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    width: 90%;
+    /* margin: 0 40px; */
     padding: 50px 0px 50px 0px;
     /*background-color: rgb(236, 236, 236);*/
     background-image: linear-gradient(130deg, var(--grad1), var(--grad2));
@@ -189,6 +190,7 @@ div.container.navbar {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 div.nav {
     min-width: 5vw;
@@ -202,6 +204,7 @@ a.nav {
     text-decoration: none;
     color: var(--navbarLinkColor);
     transition: background-color 0.3s;
+    text-align: center;
   }
 
   a.nav:hover {

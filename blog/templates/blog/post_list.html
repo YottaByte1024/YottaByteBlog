@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="row">
-    {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated and request.user.is_staff %}
     <div class="col article">
         <a class="button" href="{% url 'add_post' %}">Add article</a>
     </div>

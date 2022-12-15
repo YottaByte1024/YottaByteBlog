@@ -1,6 +1,6 @@
 {% extends "blog/base.html" %}
 {% load static %}
-
+{% load markdown_extras %}
 
 {% block header %}
 <header class="container header">
@@ -9,8 +9,9 @@
         <span>1024_YottaByte's site</span>
     </div>
     <div class="main-about">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sequi, molestiae culpa sapiente
-        doloribus iste obcaecati animi reiciendis esse atque ipsum earum aperiam quam est sit quo hic quia nisi?
-    </div>
+        {% with object_list|dictsort:"pk"|first as header_text%}
+        {{header_text.body | markdown | safe}}
+        {% endwith %}
+        </div>
 </header>
 {% endblock header %}
