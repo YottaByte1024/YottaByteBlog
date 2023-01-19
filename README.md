@@ -16,6 +16,6 @@ It implements some basic Django functionality.
   - page for creating new posts
   - panels for managing posts (for authorized users)
   - pagination
-  - translation from markdown format to html
+  - translation from Markdown format to html
 - simple registration
 - simple login and logout
