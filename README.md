@@ -19,3 +19,9 @@ It implements some basic Django functionality.
   - translation from Markdown format to html
 - simple registration
 - simple login and logout
+
+## Demonstration
+
+![Blogpage](demonstration/blogpage.jpeg)
+
+![Postpage](demonstration/postpage.png)
